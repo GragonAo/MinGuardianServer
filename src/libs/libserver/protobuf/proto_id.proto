@@ -1,0 +1,140 @@
+syntax = "proto3";
+
+package Proto; // 定义包名
+
+// 消息 ID 枚举
+enum MsgId {
+    None = 0; // 默认值
+
+    MI_NetworkConnect = 1;            // 网络连接请求
+    MI_NetworkConnected = 2;           // 网络连接成功
+
+    MI_NetworkListen = 3;              // 网络监听新连接
+    MI_NetworkListenKey = 4;           // 网络监听获取 Key 值
+
+    /*
+    * 网络断开通知，包括详细信息
+    * 通知客户端断开原因等信息
+    */
+    MI_NetworkDisconnect = 10;         // 网络断开
+    MI_NetworkDisconnectEx = 11;      // 网络断开（扩展）
+
+    /*
+    * 客户端请求断开连接
+    * 用于处理网络相关的请求
+    */
+    MI_NetworkRequestDisconnect = 20;  // 客户端请求断开连接
+
+    MI_RemoveComponent = 50;           // 移除组件
+    MI_CreateComponent = 51;           // 创建组件
+    MI_CreateSystem = 52;              // 创建系统
+
+    MI_Ping = 101;                     // Ping 消息
+    MI_AppRegister = 102;              // 应用注册请求
+    MI_AppInfoSync = 103;              // 应用信息同步
+    MI_AppInfoListSync = 104;          // 应用信息列表同步
+
+    // 登录相关
+    C2L_AccountCheck = 1000;           // 客户端发送账户检查请求
+    C2L_AccountCheckRs = 1001;         // 账户检查响应
+
+    MI_AccountQueryOnlineToRedis = 1002; // 查询账户在线状态
+    MI_AccountQueryOnlineToRedisRs = 1003; // 查询账户在线状态响应
+
+    L2DB_QueryPlayerList = 1010;       // 查询玩家列表请求
+    L2DB_QueryPlayerListRs = 1011;     // 查询玩家列表响应
+
+    L2C_PlayerList = 1012;              // 玩家列表消息
+
+    C2L_CreatePlayer = 1014;           // 创建新角色请求
+    C2L_CreatePlayerRs = 1015;         // 创建角色响应
+
+    L2DB_CreatePlayer = 1016;          // 创建角色到数据库请求
+    L2DB_CreatePlayerRs = 1017;        // 创建角色到数据库响应
+
+    C2L_SelectPlayer = 1018;           // 选择角色请求
+    C2L_SelectPlayerRs = 1019;         // 选择角色响应
+
+    MI_LoginTokenToRedis = 1022;       // 登录时将 Token 存入 Redis
+    MI_LoginTokenToRedisRs = 1023;     // 登录 Token 响应
+
+    L2C_GameToken = 1024;              // 游戏 Token 消息
+
+    // 游戏相关
+    C2G_LoginByToken = 1100;           // 通过 Token 登录游戏
+    C2G_LoginByTokenRs = 1101;         // 通过 Token 登录响应
+
+    MI_GameTokenToRedis = 1102;        // 将游戏 Token 存入 Redis
+    MI_GameTokenToRedisRs = 1103;      // 游戏 Token 存入 Redis 响应
+
+    G2DB_QueryPlayer = 1104;           // 查询玩家请求
+    G2DB_QueryPlayerRs = 1105;         // 查询玩家响应
+
+    G2C_SyncPlayer = 1106;             // 同步玩家信息
+
+    G2M_RequestWorld = 1108;           // 请求进入世界
+    G2S_CreateWorld = 1109;            // 创建新世界请求
+
+    MI_Teleport = 1110;                // 请求传送
+    MI_TeleportAfter = 1111;           // 传送后处理
+
+    G2S_SyncPlayer = 1112;             // 同步玩家信息到服务器
+    G2S_RequestSyncPlayer = 1113;      // 请求同步玩家
+    G2DB_SavePlayer = 1114;            // 保存玩家信息请求
+    G2S_RemovePlayer = 1115;           // 移除玩家请求
+
+    C2G_EnterWorld = 1116;             // 进入世界请求
+
+    G2M_QueryWorld = 1117;             // 查询世界请求
+    G2M_QueryWorldRs = 1118;           // 查询世界响应
+
+    // 空间相关
+    S2C_EnterWorld = 1501;             // 通知客户端进入某个世界
+    S2G_SyncPlayer = 1502;             // 同步玩家数据给游戏服务器
+
+    S2C_RoleAppear = 1503;             // 角色出现消息
+    S2C_RoleDisAppear = 1504;          // 角色消失消息
+
+    C2S_Move = 1505;                   // 移动请求
+    S2C_Move = 1506;                   // 移动响应
+
+    // 广播相关
+    MI_BroadcastCreateWorld = 2001;    // 广播创建世界消息
+    MI_BroadcastCreateWorldProxy = 2002; // 广播创建世界代理消息
+
+    // 同步相关
+    MI_WorldSyncToGather = 3001;       // 世界同步消息
+    MI_WorldProxySyncToGather = 3002;  // 世界代理同步消息
+
+    // Redis 相关
+    MI_AccountSyncOnlineToRedis = 4001; // 同步账户在线状态到 Redis
+    MI_AccountDeleteOnlineToRedis = 4002; // 删除账户在线状态
+
+    MI_PlayerSyncOnlineToRedis = 4003; // 同步玩家在线状态到 Redis
+    MI_PlayerDeleteOnlineToRedis = 4004; // 删除玩家在线状态
+
+    // 机器人相关
+    MI_RobotSyncState = 5001;          // 机器人状态同步
+    MI_RobotCreate = 5002;             // 创建机器人
+
+    // HTTP 监听相关
+    MI_HttpBegin = 10000;              // HTTP 监听开始
+    MI_HttpInnerResponse = 10001;      // 内部 HTTP 响应
+    MI_HttpRequestBad = 10002;         // 错误的 HTTP 请求
+    MI_HttpRequestLogin = 10003;       // 登录 HTTP 请求
+
+    MI_HttpEnd = 10499;                // HTTP 监听结束
+
+    // HTTP 连接器相关
+    MI_HttpOuterRequest = 10500;       // 外部 HTTP 请求
+    MI_HttpOuterResponse = 10501;      // 外部 HTTP 响应
+
+    // 命令相关
+    MI_CmdThread = 20001;              // 线程命令
+    MI_CmdApp = 20002;                 // 应用命令
+    MI_CmdWorldProxy = 20003;          // 世界代理命令
+    MI_CmdWorld = 20004;               // 世界命令
+    MI_CmdCreate = 20005;              // 创建命令
+    MI_CmdEfficiency = 20006;          // 效率命令
+    MI_Efficiency = 20007;             // 效率消息
+}

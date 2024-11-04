@@ -1,0 +1,48 @@
+syntax = "proto3";
+
+package Proto; // 定义包名
+
+// 三维向量结构
+message Vector3 {
+    float x = 1; // X 坐标
+    float y = 2; // Y 坐标
+    float z = 3; // Z 坐标
+}
+
+// 性别枚举
+enum Gender {
+    none = 0;   // 未知
+    male = 1;   // 男性
+    female = 2; // 女性
+}
+
+// 玩家基础信息结构
+message PlayerBase {
+    Gender gender = 1; // 性别
+    int32 level = 2;   // 等级
+}
+
+// 记录玩家最近的世界信息结构
+// 用于处理玩家在游戏中的位置信息
+// 玩家在离开世界时会记录当前世界的信息
+// 玩家在重新进入时会使用这些信息进行恢复
+message LastWorld {
+    int32 world_id = 1;  // 世界 ID
+    int64 world_sn = 2;  // 世界序列号
+    Vector3 position = 3; // 玩家在世界中的位置
+}
+
+// 玩家杂项信息结构
+message PlayerMisc {
+    LastWorld last_world = 1;   // 最近的世界信息
+    LastWorld last_dungeon = 2; // 最近的地下城信息
+    int32 online_version = 3;    // 在线版本号，用于版本控制
+}
+
+// 玩家信息结构
+message Player {
+    uint64 sn = 1;           // 玩家唯一序列号
+    string name = 2;        // 玩家名称
+    PlayerBase base = 3;    // 玩家基础信息
+    PlayerMisc misc = 4;    // 玩家杂项信息
+}
