@@ -2,6 +2,7 @@
 #include "component_help.h"
 #include "entity_system.h"
 #include "global.h"
+#include "libserver/common.h"
 #include "libserver/socket_object.h"
 #include "log4_help.h"
 #include "mongoose/mongoose.h"

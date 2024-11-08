@@ -58,6 +58,7 @@ struct AppListConfig : public AppConfig
 struct LoginConfig : public AppListConfig
 {
     std::string UrlLogin;   // 登录 URL
+    std::string UrlRegister;    //注册 URL
     std::string UrlMethod;  // 登录方法
 };
 

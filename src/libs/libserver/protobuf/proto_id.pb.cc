@@ -25,7 +25,7 @@ static constexpr ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema* schemas = n
 static constexpr ::PROTOBUF_NAMESPACE_ID::Message* const* file_default_instances = nullptr;
 
 const char descriptor_table_protodef_proto_5fid_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
-  "\n\016proto_id.proto\022\005Proto*\373\016\n\005MsgId\022\010\n\004Non"
+  "\n\016proto_id.proto\022\005Proto*\261\017\n\005MsgId\022\010\n\004Non"
   "e\020\000\022\025\n\021MI_NetworkConnect\020\001\022\027\n\023MI_Network"
   "Connected\020\002\022\024\n\020MI_NetworkListen\020\003\022\027\n\023MI_"
   "NetworkListenKey\020\004\022\030\n\024MI_NetworkDisconne"
@@ -35,45 +35,47 @@ const char descriptor_table_protodef_proto_5fid_2eproto[] PROTOBUF_SECTION_VARIA
   "CreateSystem\0204\022\013\n\007MI_Ping\020e\022\022\n\016MI_AppReg"
   "ister\020f\022\022\n\016MI_AppInfoSync\020g\022\026\n\022MI_AppInf"
   "oListSync\020h\022\025\n\020C2L_AccountCheck\020\350\007\022\027\n\022C2"
-  "L_AccountCheckRs\020\351\007\022!\n\034MI_AccountQueryOn"
-  "lineToRedis\020\352\007\022#\n\036MI_AccountQueryOnlineT"
-  "oRedisRs\020\353\007\022\031\n\024L2DB_QueryPlayerList\020\362\007\022\033"
-  "\n\026L2DB_QueryPlayerListRs\020\363\007\022\023\n\016L2C_Playe"
-  "rList\020\364\007\022\025\n\020C2L_CreatePlayer\020\366\007\022\027\n\022C2L_C"
-  "reatePlayerRs\020\367\007\022\026\n\021L2DB_CreatePlayer\020\370\007"
-  "\022\030\n\023L2DB_CreatePlayerRs\020\371\007\022\025\n\020C2L_Select"
-  "Player\020\372\007\022\027\n\022C2L_SelectPlayerRs\020\373\007\022\031\n\024MI"
-  "_LoginTokenToRedis\020\376\007\022\033\n\026MI_LoginTokenTo"
-  "RedisRs\020\377\007\022\022\n\rL2C_GameToken\020\200\010\022\025\n\020C2G_Lo"
-  "ginByToken\020\314\010\022\027\n\022C2G_LoginByTokenRs\020\315\010\022\030"
-  "\n\023MI_GameTokenToRedis\020\316\010\022\032\n\025MI_GameToken"
-  "ToRedisRs\020\317\010\022\025\n\020G2DB_QueryPlayer\020\320\010\022\027\n\022G"
-  "2DB_QueryPlayerRs\020\321\010\022\023\n\016G2C_SyncPlayer\020\322"
-  "\010\022\025\n\020G2M_RequestWorld\020\324\010\022\024\n\017G2S_CreateWo"
-  "rld\020\325\010\022\020\n\013MI_Teleport\020\326\010\022\025\n\020MI_TeleportA"
-  "fter\020\327\010\022\023\n\016G2S_SyncPlayer\020\330\010\022\032\n\025G2S_Requ"
-  "estSyncPlayer\020\331\010\022\024\n\017G2DB_SavePlayer\020\332\010\022\025"
-  "\n\020G2S_RemovePlayer\020\333\010\022\023\n\016C2G_EnterWorld\020"
-  "\334\010\022\023\n\016G2M_QueryWorld\020\335\010\022\025\n\020G2M_QueryWorl"
-  "dRs\020\336\010\022\023\n\016S2C_EnterWorld\020\335\013\022\023\n\016S2G_SyncP"
-  "layer\020\336\013\022\023\n\016S2C_RoleAppear\020\337\013\022\026\n\021S2C_Rol"
-  "eDisAppear\020\340\013\022\r\n\010C2S_Move\020\341\013\022\r\n\010S2C_Move"
-  "\020\342\013\022\034\n\027MI_BroadcastCreateWorld\020\321\017\022!\n\034MI_"
-  "BroadcastCreateWorldProxy\020\322\017\022\031\n\024MI_World"
-  "SyncToGather\020\271\027\022\036\n\031MI_WorldProxySyncToGa"
-  "ther\020\272\027\022 \n\033MI_AccountSyncOnlineToRedis\020\241"
-  "\037\022\"\n\035MI_AccountDeleteOnlineToRedis\020\242\037\022\037\n"
-  "\032MI_PlayerSyncOnlineToRedis\020\243\037\022!\n\034MI_Pla"
-  "yerDeleteOnlineToRedis\020\244\037\022\026\n\021MI_RobotSyn"
-  "cState\020\211\'\022\023\n\016MI_RobotCreate\020\212\'\022\021\n\014MI_Htt"
-  "pBegin\020\220N\022\031\n\024MI_HttpInnerResponse\020\221N\022\026\n\021"
-  "MI_HttpRequestBad\020\222N\022\030\n\023MI_HttpRequestLo"
-  "gin\020\223N\022\017\n\nMI_HttpEnd\020\203R\022\030\n\023MI_HttpOuterR"
-  "equest\020\204R\022\031\n\024MI_HttpOuterResponse\020\205R\022\022\n\014"
-  "MI_CmdThread\020\241\234\001\022\017\n\tMI_CmdApp\020\242\234\001\022\026\n\020MI_"
-  "CmdWorldProxy\020\243\234\001\022\021\n\013MI_CmdWorld\020\244\234\001\022\022\n\014"
-  "MI_CmdCreate\020\245\234\001\022\026\n\020MI_CmdEfficiency\020\246\234\001"
-  "\022\023\n\rMI_Efficiency\020\247\234\001b\006proto3"
+  "L_AccountCheckRs\020\351\007\022\030\n\023C2L_AccountRegist"
+  "er\020\352\007\022\032\n\025C2L_AccountRegisterRs\020\353\007\022!\n\034MI_"
+  "AccountQueryOnlineToRedis\020\354\007\022#\n\036MI_Accou"
+  "ntQueryOnlineToRedisRs\020\355\007\022\031\n\024L2DB_QueryP"
+  "layerList\020\362\007\022\033\n\026L2DB_QueryPlayerListRs\020\363"
+  "\007\022\023\n\016L2C_PlayerList\020\364\007\022\025\n\020C2L_CreatePlay"
+  "er\020\366\007\022\027\n\022C2L_CreatePlayerRs\020\367\007\022\026\n\021L2DB_C"
+  "reatePlayer\020\370\007\022\030\n\023L2DB_CreatePlayerRs\020\371\007"
+  "\022\025\n\020C2L_SelectPlayer\020\372\007\022\027\n\022C2L_SelectPla"
+  "yerRs\020\373\007\022\031\n\024MI_LoginTokenToRedis\020\376\007\022\033\n\026M"
+  "I_LoginTokenToRedisRs\020\377\007\022\022\n\rL2C_GameToke"
+  "n\020\200\010\022\025\n\020C2G_LoginByToken\020\314\010\022\027\n\022C2G_Login"
+  "ByTokenRs\020\315\010\022\030\n\023MI_GameTokenToRedis\020\316\010\022\032"
+  "\n\025MI_GameTokenToRedisRs\020\317\010\022\025\n\020G2DB_Query"
+  "Player\020\320\010\022\027\n\022G2DB_QueryPlayerRs\020\321\010\022\023\n\016G2"
+  "C_SyncPlayer\020\322\010\022\025\n\020G2M_RequestWorld\020\324\010\022\024"
+  "\n\017G2S_CreateWorld\020\325\010\022\020\n\013MI_Teleport\020\326\010\022\025"
+  "\n\020MI_TeleportAfter\020\327\010\022\023\n\016G2S_SyncPlayer\020"
+  "\330\010\022\032\n\025G2S_RequestSyncPlayer\020\331\010\022\024\n\017G2DB_S"
+  "avePlayer\020\332\010\022\025\n\020G2S_RemovePlayer\020\333\010\022\023\n\016C"
+  "2G_EnterWorld\020\334\010\022\023\n\016G2M_QueryWorld\020\335\010\022\025\n"
+  "\020G2M_QueryWorldRs\020\336\010\022\023\n\016S2C_EnterWorld\020\335"
+  "\013\022\023\n\016S2G_SyncPlayer\020\336\013\022\023\n\016S2C_RoleAppear"
+  "\020\337\013\022\026\n\021S2C_RoleDisAppear\020\340\013\022\r\n\010C2S_Move\020"
+  "\341\013\022\r\n\010S2C_Move\020\342\013\022\034\n\027MI_BroadcastCreateW"
+  "orld\020\321\017\022!\n\034MI_BroadcastCreateWorldProxy\020"
+  "\322\017\022\031\n\024MI_WorldSyncToGather\020\271\027\022\036\n\031MI_Worl"
+  "dProxySyncToGather\020\272\027\022 \n\033MI_AccountSyncO"
+  "nlineToRedis\020\241\037\022\"\n\035MI_AccountDeleteOnlin"
+  "eToRedis\020\242\037\022\037\n\032MI_PlayerSyncOnlineToRedi"
+  "s\020\243\037\022!\n\034MI_PlayerDeleteOnlineToRedis\020\244\037\022"
+  "\026\n\021MI_RobotSyncState\020\211\'\022\023\n\016MI_RobotCreat"
+  "e\020\212\'\022\021\n\014MI_HttpBegin\020\220N\022\031\n\024MI_HttpInnerR"
+  "esponse\020\221N\022\026\n\021MI_HttpRequestBad\020\222N\022\030\n\023MI"
+  "_HttpRequestLogin\020\223N\022\017\n\nMI_HttpEnd\020\203R\022\030\n"
+  "\023MI_HttpOuterRequest\020\204R\022\031\n\024MI_HttpOuterR"
+  "esponse\020\205R\022\022\n\014MI_CmdThread\020\241\234\001\022\017\n\tMI_Cmd"
+  "App\020\242\234\001\022\026\n\020MI_CmdWorldProxy\020\243\234\001\022\021\n\013MI_Cm"
+  "dWorld\020\244\234\001\022\022\n\014MI_CmdCreate\020\245\234\001\022\026\n\020MI_Cmd"
+  "Efficiency\020\246\234\001\022\023\n\rMI_Efficiency\020\247\234\001b\006pro"
+  "to3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_proto_5fid_2eproto_deps[1] = {
 };
@@ -82,7 +84,7 @@ static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_pro
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_proto_5fid_2eproto_once;
 static bool descriptor_table_proto_5fid_2eproto_initialized = false;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_proto_5fid_2eproto = {
-  &descriptor_table_proto_5fid_2eproto_initialized, descriptor_table_protodef_proto_5fid_2eproto, "proto_id.proto", 1949,
+  &descriptor_table_proto_5fid_2eproto_initialized, descriptor_table_protodef_proto_5fid_2eproto, "proto_id.proto", 2003,
   &descriptor_table_proto_5fid_2eproto_once, descriptor_table_proto_5fid_2eproto_sccs, descriptor_table_proto_5fid_2eproto_deps, 0, 0,
   schemas, file_default_instances, TableStruct_proto_5fid_2eproto::offsets,
   file_level_metadata_proto_5fid_2eproto, 0, file_level_enum_descriptors_proto_5fid_2eproto, file_level_service_descriptors_proto_5fid_2eproto,
@@ -116,6 +118,8 @@ bool MsgId_IsValid(int value) {
     case 1001:
     case 1002:
     case 1003:
+    case 1004:
+    case 1005:
     case 1010:
     case 1011:
     case 1012:

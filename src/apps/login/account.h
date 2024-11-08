@@ -1,13 +1,16 @@
 #pragma once
 
 #include "libplayer/player.h"
+#include "libserver/common.h"
 #include "libserver/entity.h"
 #include "libserver/protobuf/msg.pb.h"
+#include "libserver/protobuf/proto_id.pb.h"
 #include "libserver/socket_object.h"
 #include "libserver/sync_component.h"
 #include "libserver/system.h"
 
 #include <json/reader.h>
+#include <queue>
 #include <string>
 
 class Account : public Entity<Account>,public IAwakeSystem<>,public SyncComponent {
@@ -36,6 +39,7 @@ private:
 
     // 处理账户检查请求
     void HandleAccountCheck(Packet *pPacket);
+    void HandleAccountRegister(Packet *pPacket);
     // 处理查询账户是否在线的响应
     void HandleAccountQueryOnlineToRedisRs(Packet* pPacket);
 
@@ -52,10 +56,12 @@ private:
     void RequestToken(Player* pPlayer) const;
     // 处理账户检查的具体逻辑，返回检查结果代码
     Proto::AccountCheckReturnCode ProcessMsg(Json::Value value) const;
-
+    std::map<SOCKET,Proto::MsgId> _httpCallbackType;        //Http回调回来的类型
+    std::map<uint64,std::queue<Proto::MsgId>> _playerSendHttpType;  //记录玩家申请的Http类型
 private:
     std::string _method{""};    // 存储 HTTP 请求方法
     std::string _httpIp{""};    // 存储 HTTP 请求的 IP 地址
     int _httpPort{0};           // 存储 HTTP 请求的端口
-    std::string _path{""}; // 存储 HTTP 路径的端口
+    std::string _loginPath{""}; // 存储 HTTP 路径
+    std::string _registerPath{""}; // 存储 HTTP 路径
 };

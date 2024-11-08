@@ -94,6 +94,7 @@ void Yaml::LoadConfig(const APP_TYPE appType, YAML::Node& config)
     {
         auto pConfig = new LoginConfig();
         pConfig->UrlLogin = node["url_login"].as<std::string>(); // 从 YAML 节点读取登录 URL
+        pConfig->UrlRegister = node["url_register"].as<std::string>(); // 从 YAML 节点读取登录 URL
         pConfig->UrlMethod = node["url_method"].as<std::string>(); // 从 YAML 节点读取登录方法
         auto pAppListConfig = dynamic_cast<AppListConfig*>(pConfig);
         LoadAppList(pAppListConfig, node);

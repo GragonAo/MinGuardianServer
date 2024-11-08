@@ -21,6 +21,7 @@ login:
   thread_connector: 1
   # url_login: http://192.168.1.149:3001/login
   url_login: http://192.168.1.160:3001/login
+  url_register: http://192.168.1.160:3001/register
   url_method: "POST"
   apps:
     - id: 101

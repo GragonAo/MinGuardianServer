@@ -8,5 +8,6 @@ public:
 	void HandleHelp() override;
 
 private:	
-	void HandleRequest(std::vector<std::string>& params);
+	void HandleRequestCheck(std::vector<std::string>& params);
+	void HandleRequestRegister(std::vector<std::string>& params);
 };
